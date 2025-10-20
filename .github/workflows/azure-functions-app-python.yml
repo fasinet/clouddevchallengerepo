@@ -32,11 +32,12 @@ jobs:
       run: |
         npm install -g azure-functions-core-tools@4 --unsafe-perm true
 
-    - name: Login to Azure
+    - name: 'Login via OIDC'
       uses: azure/login@v1
       with:
-        creds: ${{ secrets.AZURE_CREDENTIALS }}
-
+        client-id: 80a50c0b-bb5e-468b-bf30-7af2cd67499a
+        tenant-id: 3517143e-db93-4b8b-b4dd-10aaecce0e99
+        subscription-id: 232bd906-0e1c-493b-8366-84c33e046d95
     - name: Deploy to Azure Function App
       run: |
         func azure functionapp publish ${{ env.AZURE_FUNCTIONAPP_NAME }}
