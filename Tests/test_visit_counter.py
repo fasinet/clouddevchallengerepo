@@ -14,7 +14,7 @@ def test_visit_counter_returns_200():
         body=None
     )
 
-    resp = visit_counter(req)
+    resp = VisitCounter(req)
 
     assert resp.status_code == 200
     response_body = json.loads(resp.get_body())
