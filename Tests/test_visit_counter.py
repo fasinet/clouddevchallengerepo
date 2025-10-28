@@ -20,3 +20,5 @@ def test_visit_counter_returns_200():
     response_body = json.loads(resp.get_body())
     assert "count" in response_body
     assert isinstance(response_body["count"], int)
+    print("Response body:", resp.get_body().decode())
+
