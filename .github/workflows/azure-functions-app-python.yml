@@ -34,6 +34,10 @@ jobs:
     - name: Install Azure Functions Core Tools
       run: |
         npm install -g azure-functions-core-tools@4 --unsafe-perm true
+    - name: Run backend tests
+      run: |
+        pip install pytest
+        pytest Tests/
 
     - name: 'Login via OIDC'
       uses: azure/login@v1
