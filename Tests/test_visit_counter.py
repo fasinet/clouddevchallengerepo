@@ -2,12 +2,14 @@ import sys
 import os
 import json
 import pytest
-import azure.functions as func
 from unittest.mock import patch, MagicMock
+import azure.functions as func
 
+# Add project root to sys.path
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 from function_app import VisitCounter
+
 @patch("function_app.TableServiceClient")
 def test_visit_counter_returns_200(mock_table_service_client):
     # Mock table client and entity
@@ -26,23 +28,13 @@ def test_visit_counter_returns_200(mock_table_service_client):
         body=None
     )
 
-def test_visit_counter_returns_200():
-    req = func.HttpRequest(
-        method='GET',
-        url='/api/VisitCounter',
-        body=None
-    )
-
+    # Call the function
     resp = VisitCounter(req)
     response_text = resp.get_body().decode()
     print("Response body:", response_text)
 
+    # Assert status code and response
     assert resp.status_code == 200
-
-    try:
-        response_body = json.loads(response_text)
-    except json.JSONDecodeError:
-        pytest.fail("Response is not valid JSON")
-
+    response_body = json.loads(response_text)
     assert "count" in response_body
     assert isinstance(response_body["count"], int)
