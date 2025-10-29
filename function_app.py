@@ -9,6 +9,8 @@ app = func.FunctionApp()
 @app.route(route="VisitCounter", auth_level=func.AuthLevel.ANONYMOUS)
 def VisitCounter(req: func.HttpRequest) -> func.HttpResponse:
     connection_string = os.getenv("AZURE_STORAGE_CONNECTION_STRING")
+    if not connection_string:
+        return func.HttpResponse("Missing AZURE_STORAGE_CONNECTION_STRING", status_code=500)
     table_name = "visitorcounttable"
     partition_key = "counter"
     row_key = "siteVisits"
