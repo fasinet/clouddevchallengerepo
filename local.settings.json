@@ -3,6 +3,6 @@
   "Values": {
     "FUNCTIONS_WORKER_RUNTIME": "python",
     "AzureWebJobsStorage": "UseDevelopmentStorage=true",
-    "AZURE_STORAGE_CONNECTION_STRING": "DefaultEndpointsProtocol=https;AccountName=visitorcountstorage;AccountKey=d/eww9FPAnMs3h0I8ZKgNa/EwIjVQSqEGypkSJPaJ6hfxqTbcTT2QrIwp8Omv8FPy/j4gt5xI15H+ASt+Pxo+g==;EndpointSuffix=core.windows.net"
+    "AZURE_STORAGE_CONNECTION_STRING": "DefaultEndpointsProtocol=https;AccountName=visitorcountstorage1;AccountKey=pS6+TzgaXq12vZO+2glW1fDTrzTsx96ok38PN+6Xf/ff/hntWOghp/ftDT4CNrTjFSWNfy78HtwG+AStAII70Q==;EndpointSuffix=core.windows.net"
   }
 }
